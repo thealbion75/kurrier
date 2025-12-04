@@ -1,0 +1,10 @@
+{
+  "name": "kurrier",
+  "scripts": {
+    "build": "turbo build",
+    "start": "turbo start"
+  },
+  "dependencies": {
+    "next": "15"
+  }
+}
