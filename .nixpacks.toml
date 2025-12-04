@@ -1,8 +1,22 @@
-[phases.setup]
+# Force Node.js provider (ignores Deno files)
+[providers]
+  [providers.nodejs]
+    detect = true  # Always detect as Node.js first
+
+[phases.install]
   nixPkgs = ["nodejs_22", "pnpm"]
+  cmds = ["pnpm install --frozen-lockfile"]
 
 [phases.build]
-  cmds = ["pnpm install --frozen-lockfile", "pnpm run build"]
+  cmds = [
+    "pnpm run build",
+    "npx prisma generate",  # Kurrier-specific: generate Prisma client
+    "npx prisma migrate deploy"  # Run migrations on build (connects to your DB)
+  ]
 
-[start]
+[phases.start]
   cmd = "pnpm start"
+
+# Optional: Run migrations at runtime if not on build
+[phases.runtime]
+  cmds = ["npx prisma migrate deploy"]
