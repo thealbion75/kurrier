@@ -1,9 +1,0 @@
-{
-  "imports": {
-    "@db": "./packages/db/index.ts",
-    "@schema": "./packages/db/schema/index.ts"
-  },
-  "compilerOptions": {
-    "lib": ["deno.ns", "dom", "dom.iterable"]
-  }
-}
