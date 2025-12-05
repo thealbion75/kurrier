@@ -1,2 +1,6 @@
 [phases.setup]
 providers = ["node"]
+nixPkgs = ["nodejs_22", "npm-10_x"]
+
+[phases.build]
+cmds = ["echo 'Skipping Deno cache - using Node.js build'"]
