@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@db": "./packages/db/index.ts",
+    "@schema": "./packages/db/schema/index.ts",
+    "@/": "./"
+  },
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
+  }
+}
